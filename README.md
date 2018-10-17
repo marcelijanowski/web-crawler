@@ -56,9 +56,18 @@ To run linter :
 * Run `yarn lint`
 
 # Tradeoffs/ Assumptions
+My solution taking into consideration that many supages have same link so we need to keep track of already visited page
+This is done in line *19* & *20* inside *index.ts* file
+```
+const domainInsternalLinks = new Set(internalLinks(links, hostname));
+const difference = differenceBetweenListOfUrls(domainInsternalLinks, allLinks);
+```
+Also at moment solution not taking into consideration links that are relative but this might be sorted with adding addional RegExp
 
-As mention in comment this isn't like idea solution which need more work as using recursive function without looking on limitation of webpage open request.
+```
+This isn't like idea solution which need more work as using recursive function without looking on limitation of webpage open request.
 Ideal solution would be creating a queing system which will process link in concurent connections and react on **429** error code and retry to get data.
+```
 
 If we talking about cloud solution would be nice to use **AWS Lambda** or ***GCP functions** to process link by link and save it into **S3 bucket** or **GCP Storage**
 
