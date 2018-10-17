@@ -2,7 +2,7 @@ import {
   parseDocument,
   searchPhases,
   internalLinks,
-  differenceBetweenSets,
+  differenceBetweenListOfUrls,
 } from './utils';
 import { readFileSync } from 'fs';
 
@@ -82,7 +82,7 @@ describe('Utils', () => {
         'https://bbc.co.uk/ccc',
       ];
 
-      expect(differenceBetweenSets(new Set(links2), new Set(links1))).toEqual(new Set(expected));
+      expect(differenceBetweenListOfUrls(new Set(links2), new Set(links1))).toEqual(new Set(expected));
     });
   });
 });

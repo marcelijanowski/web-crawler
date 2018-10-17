@@ -13,7 +13,7 @@ export const searchPhases: RegExp [] = [
   /(http|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?/ig,
 ];
 
-export const differenceBetweenSets = (setA: any, setB: any): any => {
+export const differenceBetweenListOfUrls = (setA: any, setB: any): any => {
   const difference = new Set(setA);
   for (const elem of setB) {
     difference.delete(elem);

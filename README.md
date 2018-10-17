@@ -24,7 +24,7 @@ For other system installation follow instruction on [Yarn official page](https:/
 
 Clone the repo and install Node dependencies
 ```
-git clone 
+git clone https://github.com/marcelijanowski/web-crawler.git
 yarn install
 ```
 
@@ -61,3 +61,5 @@ As mention in comment this isn't like idea solution which need more work as usin
 Ideal solution would be creating a queing system which will process link in concurent connections and react on **429** error code and retry to get data.
 
 If we talking about cloud solution would be nice to use **AWS Lambda** or ***GCP functions** to process link by link and save it into **S3 bucket** or **GCP Storage**
+
+Also would be good to Dockerize solution and run e2e on docker - unfortunatly lack of time for now.
