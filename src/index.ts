@@ -13,7 +13,7 @@ try {
     uri: DOMAIN,
   };
 
-  const followLinks = async (options: rp.Options): Promise<any> => {
+  const followLinks = async (options: rp.Options): Promise<string []> => {
     try {
       const links = await rp(options);
       const domainInsternalLinks = new Set(internalLinks(links, hostname));
