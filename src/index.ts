@@ -40,7 +40,10 @@ try {
       // Section is disable for a moment but would be good to add here some
       // custom logger like winston, buyan and format it nicely so can be
       // process by ELK (Elastic Logstash Kibana) for monitoring.
-      // console.log(error);
+      // At moment we getting mainly error from ECONNRESET or 429 as srcipt hit
+      // limit on.
+      return Array.from(allLinks);
+      // console.log(error.message);
     }
   };
   const userLinks = followLinks(options);

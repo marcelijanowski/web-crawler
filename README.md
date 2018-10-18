@@ -64,11 +64,15 @@ This is done in line *19* & *20* inside *index.ts* file
 const domainInsternalLinks = new Set(internalLinks(links, hostname));
 const difference = differenceBetweenListOfUrls(domainInsternalLinks, allLinks);
 ```
-2. Also at moment solution not taking into consideration links that are relative but this might be sorted with adding addional RegExp
+2. For some domain like wipro script will hang for some time as cause page is trying 
+script as spammer and blocking calls giving first *429* and then blocking connection 
+completly. One solution will be doing call in random sequence of time but this will slow script.
 
-3. This isn't like idea solution which need more work as using recursive function without looking on limitation of webpage open request.
+3. Also at moment solution not taking into consideration links that are relative but this might be sorted with adding addional RegExp
+
+4. This isn't like idea solution which need more work as using recursive function without looking on limitation of webpage open request.
 Ideal solution would be creating a queing system which will process link in concurent connections and react on **429** error code and retry to get data.
 
-4. .If we talking about cloud solution would be nice to use **AWS Lambda** or ***GCP functions** to process link by link and save it into **S3 bucket** or **GCP Storage**
+5. If we talking about cloud solution would be nice to use **AWS Lambda** or ***GCP functions** to process link by link and save it into **S3 bucket** or **GCP Storage**
 
-5. Also would be good to Dockerize solution and run e2e on docker - unfortunatly lack of time for now.
+6. Also would be good to Dockerize solution and run e2e on docker - unfortunatly lack of time for now.
