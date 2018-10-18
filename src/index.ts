@@ -13,8 +13,11 @@ try {
     uri: DOMAIN,
   };
 
-  const followLinks = async (options: rp.Options): Promise<string []> => {
+  const followLinks = async (options: rp.OptionsWithUri): Promise<string []> => {
     try {
+      // Debug section to see what url are process. If you want to see logs
+      // enable log beyond.
+      // log(chalk.blue(`Processing now: ${options.uri}`));
       const links = await rp(options);
       const domainInsternalLinks = new Set(internalLinks(links, hostname));
       const difference = differenceBetweenListOfUrls(domainInsternalLinks, allLinks);
@@ -34,11 +37,14 @@ try {
         Array.from(new Set(promiseLinks.reduce((arr, item) => arr.concat(item), []))),
       );
     } catch (error) {
+      // Section is disable for a moment but would be good to add here some
+      // custom logger like winston, buyan and format it nicely so can be
+      // process by ELK (Elastic Logstash Kibana) for monitoring.
       // console.log(error);
     }
   };
   const userLinks = followLinks(options);
-  userLinks.then((links: any) => Array.from(links).forEach((link => console.log(link))))
+  userLinks.then((links: string []) => links.forEach((link => console.log(link))))
           .catch();
 } catch (error) {
   log(chalk.red(error));
