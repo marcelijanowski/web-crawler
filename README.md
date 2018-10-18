@@ -56,7 +56,7 @@ To run linter :
 * Run `yarn lint`
 
 # Tradeoffs/ Assumptions
-### Solution is slow and taking around 50 seconds for https://wiprodigital.com/ but suggestion at bottom .
+**Solution is slow and taking around 50 seconds for https://wiprodigital.com/ but suggestion at bottom . Sometime even not getting though all url as script is block by server and then we catching error and returing process results (not full unfortunatly).**
 
 1. Solution taking into consideration that many supages have same link so we need to keep track of already visited page
 This is done in line *19* & *20* inside *index.ts* file
